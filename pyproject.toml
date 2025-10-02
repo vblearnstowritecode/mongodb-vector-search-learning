@@ -1,0 +1,19 @@
+[project]
+name = "mongodb-vector-search"
+version = "0.1.0"
+description = "Learning MongoDB Vector Search with Airbnb dataset"
+requires-python = ">=3.9"
+dependencies = [
+    "datasets>=2.14.0",
+    "pandas>=2.0.0",
+    "openai>=1.0.0",
+    "pymongo>=4.5.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

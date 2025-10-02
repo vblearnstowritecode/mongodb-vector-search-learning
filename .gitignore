@@ -1,0 +1,25 @@
+# Environment variables (contains API keys and passwords)
+.env
+
+# Markdown files (documentation/notes) - except README
+*.md
+!README.md
+
+# Claude configuration
+CLAUDE.md
+
+# Other credentials
+othercreds.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

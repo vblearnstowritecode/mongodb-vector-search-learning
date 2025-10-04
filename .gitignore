@@ -7,6 +7,7 @@
 
 # Claude configuration
 CLAUDE.md
+.claude/
 
 # Other credentials
 othercreds.md

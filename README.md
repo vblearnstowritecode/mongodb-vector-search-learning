@@ -61,6 +61,34 @@ Output:
      affordable at $X, and perfectly sized for 4 guests..."
 ```
 
+### Experiment 3: Projections for Efficient Data Transfer
+**File**: `learning_projections.ipynb`
+
+**What it does**: Demonstrates MongoDB projections to reduce data transfer by 65%
+
+**Learning goals**:
+- Understand what projections are and why they matter
+- Compare searches WITH vs WITHOUT projections
+- Use the `$project` stage in aggregation pipelines
+- Access metadata with `$meta` operator (similarity scores)
+- Optimize data transfer for LLM applications
+
+**Example**:
+```
+Same query, two approaches:
+
+WITHOUT projection:
+  → MongoDB returns: 40 fields (full documents)
+  → Includes: reviews, images, host details, amenities, etc.
+
+WITH projection:
+  → MongoDB returns: 14 fields (only what we need)
+  → Includes: name, address, summary, score
+  → Result: 65% less data transferred!
+```
+
+**Key insight**: When building RAG systems, projections keep your LLM context focused and reduce bandwidth costs.
+
 ## Note
 
 This is a learning repository - code is intentionally simple and exploratory. Not production-ready!

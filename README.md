@@ -89,6 +89,38 @@ WITH projection:
 
 **Key insight**: When building RAG systems, projections keep your LLM context focused and reduce bandwidth costs.
 
+### Experiment 4: Boosting with Review Scores
+**File**: `lesson4_boosting.ipynb` (private - not in repo)
+
+**What it does**: Re-ranks vector search results by combining semantic similarity with quality metrics
+
+**Learning goals**:
+- Understand when pure vector search isn't enough (similar ≠ best)
+- Calculate aggregate scores from multiple review dimensions
+- Use MongoDB aggregation pipelines to boost high-quality results
+- Learn when to use dynamic boosting vs pre-computed scores
+
+**Example**:
+```
+Query: "warm friendly place near restaurants"
+
+Without boosting:
+  → Listing A ranks #1 (similarity 0.95, reviews 6.2/10, 3 reviews)
+
+With boosting (90% quality + 10% popularity):
+  → Listing B ranks #1 (similarity 0.82, reviews 9.7/10, 143 reviews)
+  → combinedScore = (9.7 × 0.9) + (143 × 0.1) = 23.03
+```
+
+**When dynamic boosting makes sense**:
+- User-specific personalization (each user has different preferences)
+- Time-sensitive factors (availability windows, seasonal pricing)
+- A/B testing different ranking formulas
+- Distance from user's search location
+- Real-time inventory or demand signals
+
+**Key insight**: Post-search boosting lets you combine semantic relevance with business logic that can't be pre-computed.
+
 ## Note
 
 This is a learning repository - code is intentionally simple and exploratory. Not production-ready!

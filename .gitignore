@@ -20,6 +20,7 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
+lesson4_boosting.ipynb
 
 # OS
 .DS_Store

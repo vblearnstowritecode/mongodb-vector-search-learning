@@ -17,10 +17,12 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+*.egg-info/
 
 # Jupyter
 .ipynb_checkpoints/
 lesson4_boosting.ipynb
+lesson5_compression.ipynb
 
 # OS
 .DS_Store

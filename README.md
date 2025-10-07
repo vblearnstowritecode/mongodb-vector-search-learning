@@ -2,17 +2,17 @@
 
 This is a rough scratch pad repository created while learning MongoDB and vector search concepts.
 
-## What I'm Learning
+**Note**: This repo closely follows the [Prompt Compression and Query Optimization](https://learn.deeplearning.ai/courses/prompt-compression-and-query-optimization/) course. I didn't experiment much beyond the course material, so it won't add much if you've already taken the course. That said, I really enjoyed learning about MongoDB vector search, creating database filters, using metadata, boosting results, and prompt compression!
+
+## What I Learned
 
 - MongoDB Atlas vector search fundamentals
 - LLM-powered filter extraction from natural language
 - Building complete RAG (Retrieval-Augmented Generation) pipelines
 - Semantic similarity search with embeddings
 - Pydantic data validation and modeling
-
-## Inspiration
-
-Inspired by the course: [Prompt Compression and Query Optimization](https://learn.deeplearning.ai/courses/prompt-compression-and-query-optimization/)
+- Result boosting with review scores
+- Prompt compression with LLMLingua-2
 
 ## Experiments
 
@@ -120,6 +120,37 @@ With boosting (90% quality + 10% popularity):
 - Real-time inventory or demand signals
 
 **Key insight**: Post-search boosting lets you combine semantic relevance with business logic that can't be pre-computed.
+
+### Experiment 5: Prompt Compression with LLMLingua-2
+**File**: `lesson5_compression.ipynb` (private - not in repo)
+
+**What it does**: Reduces token costs by 80%+ using intelligent compression while maintaining answer quality
+
+**Learning goals**:
+- Understand token costs in production RAG systems
+- Use LLMLingua-2 to compress verbose search results
+- Measure compression ratios and cost savings
+- Balance quality vs efficiency trade-offs
+
+**Example**:
+```
+Same query, same 20 listings:
+
+Without compression:
+  → Context sent to GPT: ~3,000 tokens
+  → Cost per query: $0.0045
+  → 1M queries: $4,500
+
+With compression (6x):
+  → Context sent to GPT: ~500 tokens (compressed!)
+  → Cost per query: $0.00075
+  → 1M queries: $750
+  → Savings: $3,750 (83% cost reduction!)
+```
+
+**What gets compressed**: Only the search results DataFrame. Query and system prompt stay intact.
+
+**Key insight**: LLMLingua-2 intelligently removes filler words ("in the neighborhood of...", "you can find...") while keeping essential info (property names, scores, locations). Production RAG systems dealing with long contexts benefit massively from this.
 
 ## Note
 

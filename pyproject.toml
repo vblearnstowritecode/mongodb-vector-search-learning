@@ -12,8 +12,12 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "jupyter>=1.0.0",
     "ipykernel>=6.0.0",
+    "llmlingua>=0.2.2",
 ]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []  # No Python modules - this is a notebook project
